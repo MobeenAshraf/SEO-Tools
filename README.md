@@ -3,7 +3,7 @@ SEO Tools (HREF Tag generator  and Title Tag Optimizer )
 
 
 HREF TAG GENERATOR:
-it is a tol that generates href tag for your url given parameters ( language and country)
+it is a tool that generates href tag for your url given parameters ( language and country)
 
 
 Title Tag Optimizer:
