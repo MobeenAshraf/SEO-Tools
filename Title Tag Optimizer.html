@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Title Tag Optimizer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="box.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Title Tag Optimizer</h2>
+  <form class="form-horizontal">
+    <div class="form-group">
+     
+      <div class="col-sm-10">
+      <p id='titleW'>512</p>
+        <input type="text" class="form-control" id="title" placeholder="Title">
+      </div>
+    </div>
+    <div class="form-group">
+      
+      <div class="col-sm-10">          
+        <input type="url" class="form-control" id="url" placeholder="URL">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-10">
+         <textarea class="form-control" rows="5" placeholder="Description" id="desc"></textarea>
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-10">
+      <input type="text" class="form-control" id="key" placeholder="Keyword">
+      </div>
+    </div>
+  </form>
+<br><br>
+
+<div class="col-sm-6">
+<div class="grWrapper">
+<div class="googleResult">
+
+<div class="grHeadline">
+<h3 id="grHeadlineBold"></h3>
+</div>
+
+<div class="grURL disUrl" id="grUrlBold">
+<font id="urlp"></font>
+</div>
+<br>
+<div class="grDescription">
+<span id="grDescriptionBold"></span>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+ $(document).ready(function () {
+
+
+
+var descWidth=950;
+var pDesc="";
+var titleTitleWidth=558;
+var pTitle="";
+var pUrl="";                                         
+$("#titleW").text(Math.round(titleTitleWidth));
+
+$.fn.wrapInTag = function(opts) {
+  
+  var tag = opts.tag || 'b',
+      words = opts.words || [],
+      regex = RegExp(words.join('|'), 'gi'),
+      replacement = '<'+ tag +'>$&</'+ tag +'>';
+  
+  return this.html(function() {
+    return $(this).text().replace(regex, replacement);
+  });
+};
+
+
+
+
+
+
+
+       $('#title').keyup(function () { 
+ var str=$( "#title" ).val();
+
+
+ $( "#grHeadlineBold" ).html( str );
+var x=titleTitleWidth-$( "#grHeadlineBold" ).width();
+ $("#titleW").text(Math.round(x));
+
+if(Math.round(x)<0)
+{
+  if(pTitle=="")
+{
+  str = str.substring(0, str.length-3);
+  pTitle=str.concat("...");
+ 
+
+}
+$( "#grHeadlineBold" ).html( pTitle);
+
+}
+
+    });
+   
+
+
+
+   $('#url').keyup(function () { 
+ var str=$( "#url" ).val();
+
+$( "#urlp" ).html( str );
+
+var x=titleTitleWidth-$( "#urlp" ).width();
+
+if(Math.round(x)<0)
+{
+  if(pUrl=="")
+{
+  str = str.substring(0, str.length-3);
+  pUrl=str.concat("...");
+ 
+
+}
+$( "#urlp" ).html( pUrl);
+
+}
+var s=$('#key').val()
+
+$('#urlp').wrapInTag({
+  tag: 'b',
+  words: [s]
+});
+
+
+    });
+
+
+
+
+  $('#key').keyup(function () { 
+
+
+var s=$('#key').val()
+
+$('#grDescriptionBold').wrapInTag({
+  tag: 'b',
+  words: [s]
+});
+
+$('#urlp').wrapInTag({
+  tag: 'b',
+  words: [s]
+});
+
+
+    });
+
+
+
+  $('#desc').keyup(function () { 
+ var str=$( "#desc" ).val();
+
+$( "#grDescriptionBold" ).html( str );
+var s=$('#key').val()
+
+$('#grDescriptionBold').wrapInTag({
+  tag: 'b',
+  words: [s]
+});
+
+
+
+var x=titleTitleWidth-$( "#grDescriptionBold" ).width();
+
+if(Math.round(x)<0)
+{
+  if(pDesc=="")
+{
+  str = str.substring(0, str.length-3);
+  pDesc=str.concat("...");
+ 
+
+}
+$( "#grDescriptionBold" ).html( pDesc);
+
+}
+$('#grDescriptionBold').wrapInTag({
+  tag: 'b',
+  words: [s]
+});
+
+
+
+
+    });
+
+
+
+
+   });
+</script>
+
+
+</body>
+</html>
