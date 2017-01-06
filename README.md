@@ -9,5 +9,5 @@ it is a tool that generates href tag for your url given parameters ( language an
 Title Tag Optimizer:
 An extremely used tool to check how your website will be viewer in Google Search. After filling in values, It will show how will google view it. If title or description is long , would it be proceeded by .... (In google). This tool helps in determining this early on.
 
-Both these tootls are  on jquery /js.  
+Both these tools are  on jquery /js.  
 
